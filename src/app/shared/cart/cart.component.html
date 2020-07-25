@@ -1,0 +1,52 @@
+<div class="cart-container">
+  <div class="order-list">
+    <div class="order-heading">
+      <div style="flex-grow: 2;">PRODUCTS</div>
+      <div style="flex-grow: 1;">PRICE</div>
+      <div style="flex-grow: 1;">QUANTITY</div>
+      <div style="flex-grow: 2;">TOTAL</div>
+    </div>
+
+    <div class="order-cart-list" *ngIf="sharedService.dataList.length > 0; else customTemplate">
+      <ng-container *ngFor="let item of sharedService.dataList">
+        <app-cart-item [(cartItem)]="item"></app-cart-item>
+      </ng-container>
+    </div>
+    <ng-template #customTemplate>
+      <div class="order-cart-list">
+        <div class="custom-message"> THERE ARE NO PRODUCTS</div>
+      </div>
+    </ng-template>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-order-details-header">
+      <div class="cart-display-name">Sub Total</div>
+      <div class="cart-display-name">VAT tax</div>
+      <div class="cart-display-name">Discount</div>
+      <div class="cart-display-name">Total</div>
+    </div>
+    <div class="cart-order-details-data">
+      <div class="cart-display-content cart-subtotal"><div>{{subTotal}} EUR</div><div class="cart-display-items">{{noOfItems}} items</div></div>
+      <div class="cart-display-content cart-vat">
+        <div >
+          <input type="number" [(ngModel)]="vatTax"> %
+        </div>
+        <div class="cart-display-output">{{(vatTax/100)*subTotal}} EUR</div>
+      </div>
+      <div class="cart-display-content cart-discount">
+        <div>
+          <input type="number" [(ngModel)]="discount"> %
+        </div>
+        <div class="cart-display-output"> {{(discount/100)*subTotal}} EUR</div>
+      </div>
+      <div class="cart-display-content cart-total">
+        {{subTotal - (vatTax/100)*subTotal - (discount/100)*subTotal }} EUR
+      </div>
+    </div>
+  </div>
+  <div class="cart-buttons">
+    <button class="cancel-btn" style="flex-grow: 1;" (click)="cancelSaleClick()">CANCEL SALE</button>
+    <button class="process-btn" style="flex-grow: 1;" (click)="processSaleClick()">PROCESS SALE</button>
+  </div>
+
+</div>

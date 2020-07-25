@@ -1,0 +1,19 @@
+<div class="products-container">
+  <ng-container  *ngFor="let product of productsList; index as ind">
+    <div *ngIf="product.image; else sampleImage"  (click)="imageClicked(product)" class="image-box">
+        <img [src]="imageUrl + product.image" alt="No Image">
+        <div class="layer">
+          <span><b>{{product.name | uppercase}}</b></span>
+          <span class="hover-text"><b>{{product.price.toFixed(3)}} EUR</b></span>
+          <span class="hover-text"><small>{{product.description | uppercase}}</small></span>
+        </div>
+    </div>
+    <ng-template #sampleImage>
+      <div class="no-image">
+        <span><b>{{product.name | uppercase}}</b></span>
+        <span class="hover-text"><b>{{product.price.toFixed(3)}} EUR</b></span>
+        <span class="hover-text"><small>{{product.description | uppercase}}</small></span>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>
