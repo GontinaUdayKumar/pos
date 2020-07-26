@@ -12,14 +12,14 @@
 .cart-order-details-header {
   float: left;
   width: 40%;
-  font-size: 14px;
+  font-size: 12px;
   margin-left: 20px;
   background-color: whitesmoke;
 }
 .cart-order-details-data {
   float: right;
   width: 59%;
-  font-size: 14px;
+  font-size: 12px;
   margin-right: 20px;
   background-color: white;
 }
@@ -37,12 +37,14 @@
   margin-left: 74px;
 }
 input {
-  width: 100px;
+  width: 40%;
+  margin: -3px;
   background-color: #ebe6e687;
   border-color: #ebe6e687;
 }
 .cart-display-items {
-  margin-left: 180px;
+  width: 35%;
+  text-align: right;
 }
 .cart-display-name {
   border: 1px solid lightgrey;
@@ -52,7 +54,7 @@ input {
 .cart-display-content {
   border: 1px solid lightgrey;
   padding: 4px;
-  height: 18px;
+  height: 16px;
   font-weight: 600;
 }
 .cart-buttons {
@@ -89,6 +91,24 @@ button.process-btn {
   font-size: 22px;
   background-color: white;
   color: grey;
+}
+
+.cart-item-subtotal {
+  width: 65%;
+}
+.cart-item-tax-input {
+  width: 40%;
+}
+.cart-item-discount-input {
+  width: 40%;
+}
+
+.cart-display-output {
+  width: 60%;
+  text-align: right;
+}
+.cart-display-content.cart-total {
+  color: lightseagreen;
 }
 
 @media (max-width: 600px) {

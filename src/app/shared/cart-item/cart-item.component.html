@@ -1,13 +1,13 @@
-<div class="order-heading">
+<div class="order-item-heading">
   <div class="list-delete-icon" (click)="deleteIconClicked(item)" ><img src="./assets/svgs/delete.png"></div>
   <div class="list-item">
     <div class="list-item-name" style="flex-grow: 2;">{{item.name}}</div>
-    <div class="list-item-price" style="flex-grow: 1;">{{item.price}}</div>
+    <div class="list-item-price" style="flex-grow: 1;">{{item.price.toFixed(3)}}</div>
     <div class="list-item-quantity" style="flex-grow: 1;">
       <button [disabled]="item.quantity <= 0" (click)="decrement()">-</button>
-      <input type="number" [(ngModel)]="item.quantity"  (keyup)="onKeyUp($event)">
+      <input type="number" [(ngModel)]="item.quantity"  (input)="onQuantityChange($event.target.value)" min="0">
       <button (click)="increment()">+</button>
     </div>
-    <div class="list-item-total" style="flex-grow: 1;">{{item.total}} INR</div>
+    <div class="list-item-total" style="flex-grow: 1;">{{item.total.toFixed(3)}} INR</div>
   </div>
 </div>

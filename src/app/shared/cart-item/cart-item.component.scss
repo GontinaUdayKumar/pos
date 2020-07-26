@@ -1,7 +1,8 @@
 
 
-.order-heading {
+.order-item-heading {
   display: flex;
+  font-size: 12px;
   margin-left: 13px;
   background-color: white;
   padding: 9px;
@@ -16,9 +17,11 @@
   margin-left: 15px;
   margin-right: 10px;
   width: 138px;
+  margin-top: 4px;
 }
 .list-item-price {
   width: 80px;
+  margin-top: 4px;
 }
 .list-item-quantity {
   width: 139px;
@@ -28,6 +31,8 @@ input {
 }
 .list-item-total {
   width: 75px;
+  margin-top: 4px;
+  text-align: right;
 }
 img {
   height: 20px;

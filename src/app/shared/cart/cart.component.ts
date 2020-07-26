@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../service/shared.service';
 
 @Component({
@@ -18,6 +18,8 @@ export class CartComponent implements OnInit {
 
   constructor(public sharedService: SharedService) { }
 
+
+
   ngOnInit() {
   }
 
@@ -31,6 +33,30 @@ export class CartComponent implements OnInit {
 
   deleteItemEvent(item) {
     this.sharedService.cartList.splice(this.sharedService.cartList.indexOf(item), 1);
+    this.sharedService.calculateCartOrder();
+  }
+
+  onVatTaxChange(taxValue) {
+    if (taxValue >= 0 && taxValue <= 100) {
+      this.sharedService.taxValue = taxValue;
+      this.sharedService.calculateCartOrder();
+    } else {
+      this.vatTax = 0;
+      this.sharedService.taxValue = 0;
+      this.sharedService.calculateCartOrder();
+    }
+
+  }
+
+  onDiscountTaxChange(discountValue) {
+    if (discountValue >= 0 && discountValue <= 100) {
+      this.sharedService.discountValue = discountValue;
+      this.sharedService.calculateCartOrder();
+    } else {
+      this.vatTax = 0;
+      this.sharedService.discountValue = 0;
+      this.sharedService.calculateCartOrder();
+    }
   }
 
 

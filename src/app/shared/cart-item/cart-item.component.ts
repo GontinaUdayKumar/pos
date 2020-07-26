@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/dashboard/model/product.model';
+import { SharedService } from '../service/shared.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -23,23 +24,26 @@ export class CartItemComponent implements OnInit {
     this.itemChange.emit(this.item);
   }
 
-  constructor() { }
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
   }
 
-  onKeyUp(event) {
-    this.item['total'] = this.item['quantity'] * this.item['price'];
+  onQuantityChange(quantityValue) {
+    this.item['total'] = quantityValue * this.item['price'];
+    this.sharedService.calculateCartOrder();
   }
 
   decrement() {
     this.item['quantity'] = this.item['quantity'] - 1;
     this.item['total'] = this.item['quantity'] * this.item['price'];
+    this.sharedService.calculateCartOrder();
   }
 
   increment() {
     this.item['quantity'] = this.item['quantity'] + 1;
     this.item['total'] = this.item['quantity'] * this.item['price'];
+    this.sharedService.calculateCartOrder();
   }
 
   deleteIconClicked(item) {
