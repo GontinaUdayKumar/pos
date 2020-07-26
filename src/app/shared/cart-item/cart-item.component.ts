@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { CartModel } from 'src/app/dashboard/model/cart.model';
+import { Product } from 'src/app/dashboard/model/product.model';
 
 @Component({
   selector: 'app-cart-item',
@@ -8,9 +8,11 @@ import { CartModel } from 'src/app/dashboard/model/cart.model';
 })
 export class CartItemComponent implements OnInit {
 
-  item: CartModel;
+  item: Product;
   @Output()
-  itemChange = new EventEmitter<CartModel>();
+  itemChange = new EventEmitter<Product>();
+
+  @Output() deleteItemEvent = new EventEmitter<Product>();
 
   @Input()
   get cartItem() {
@@ -26,12 +28,22 @@ export class CartItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  onKeyUp(event) {
+    this.item['total'] = this.item['quantity'] * this.item['price'];
+  }
+
   decrement() {
     this.item['quantity'] = this.item['quantity'] - 1;
+    this.item['total'] = this.item['quantity'] * this.item['price'];
   }
 
   increment() {
     this.item['quantity'] = this.item['quantity'] + 1;
+    this.item['total'] = this.item['quantity'] * this.item['price'];
+  }
+
+  deleteIconClicked(item) {
+    this.deleteItemEvent.emit(item);
   }
 
 }

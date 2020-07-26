@@ -76,7 +76,11 @@ button.process-btn {
   color: white;
 }
 .order-cart-list {
-  min-height: 375px;
+  min-height: 365px;
+  max-height: 365px;
+  margin-bottom: 40px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .custom-message {
   padding: 33px;
@@ -107,7 +111,7 @@ button.process-btn {
   .order-cart-list {
     min-height: 215px;
 }
-.pos-products[_ngcontent-xed-c1] {
+.pos-products {
   width: 100%;
 }
 }

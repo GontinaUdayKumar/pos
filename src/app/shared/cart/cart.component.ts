@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SharedService } from '../service/shared.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { SharedService } from '../service/shared.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+
 
   subTotal;
   vatTax;
@@ -26,6 +27,10 @@ export class CartComponent implements OnInit {
 
   processSaleClick() {
 
+  }
+
+  deleteItemEvent(item) {
+    this.sharedService.cartList.splice(this.sharedService.cartList.indexOf(item), 1);
   }
 
 

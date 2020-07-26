@@ -7,9 +7,9 @@
       <div style="flex-grow: 2;">TOTAL</div>
     </div>
 
-    <div class="order-cart-list" *ngIf="sharedService.dataList.length > 0; else customTemplate">
-      <ng-container *ngFor="let item of sharedService.dataList">
-        <app-cart-item [(cartItem)]="item"></app-cart-item>
+    <div class="order-cart-list" *ngIf="sharedService.cartList.length > 0; else customTemplate">
+      <ng-container *ngFor="let item of sharedService.cartList">
+        <app-cart-item [(cartItem)]="item" (deleteItemEvent)="deleteItemEvent($event)"></app-cart-item>
       </ng-container>
     </div>
     <ng-template #customTemplate>
@@ -26,21 +26,21 @@
       <div class="cart-display-name">Total</div>
     </div>
     <div class="cart-order-details-data">
-      <div class="cart-display-content cart-subtotal"><div>{{subTotal}} EUR</div><div class="cart-display-items">{{noOfItems}} items</div></div>
+      <div class="cart-display-content cart-subtotal"><div>{{sharedService.cartSubTotal}} EUR</div><div class="cart-display-items">{{sharedService.noOfItems}} items</div></div>
       <div class="cart-display-content cart-vat">
         <div >
           <input type="number" [(ngModel)]="vatTax"> %
         </div>
-        <div class="cart-display-output">{{(vatTax/100)*subTotal}} EUR</div>
+        <div class="cart-display-output">{{(vatTax/100)*sharedService.cartSubTotal}} EUR</div>
       </div>
       <div class="cart-display-content cart-discount">
         <div>
           <input type="number" [(ngModel)]="discount"> %
         </div>
-        <div class="cart-display-output"> {{(discount/100)*subTotal}} EUR</div>
+        <div class="cart-display-output"> {{(discount/100)*sharedService.cartSubTotal}} EUR</div>
       </div>
       <div class="cart-display-content cart-total">
-        {{subTotal - (vatTax/100)*subTotal - (discount/100)*subTotal }} EUR
+        {{subTotal - (vatTax/100)*sharedService.cartSubTotal - (discount/100)*sharedService.cartSubTotal }} EUR
       </div>
     </div>
   </div>
