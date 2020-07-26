@@ -30,4 +30,16 @@ export class SharedService {
     this.cartTotal = this.cartSubTotal + this.vatTax - this.discount;
     this.cartTotal = this.cartSubTotal + this.vatTax - this.discount;
   }
+
+  resetCartData() {
+    this.cartSubTotal = 0;
+    this.noOfItems = 0;
+    this.cartTotal = 0;
+    this.taxValue = 0;
+    this.discountValue = 0;
+    this.vatTax = 0;
+    this.discount = 0;
+    this.noOfItems = 0;
+    this.cartList = [];
+  }
 }

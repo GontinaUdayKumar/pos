@@ -1,0 +1,17 @@
+<div class="mat-dialog-container">
+<h1 mat-dialog-title>
+  {{title}}
+</h1>
+
+<mat-dialog-content class="mat-dialog-content">
+  <div *ngIf="data.component">
+    <dynamic-component-loader [component]="data.component" [data]="data.data"></dynamic-component-loader>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <div fxFlex></div>
+  <button class="close-btn" *ngFor="let button of data.actionButtons"
+    (click)="button.clickHandler(dialogRef)">{{button.title}}</button>
+</mat-dialog-actions>
+</div>

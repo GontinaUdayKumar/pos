@@ -111,6 +111,13 @@ button.process-btn {
   color: lightseagreen;
 }
 
+.cancel-btn:hover {
+  cursor: pointer;
+}
+.process-btn:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
   .cart-display-items {
     margin-left: 92px;

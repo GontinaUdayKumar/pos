@@ -1,0 +1,40 @@
+<h2 class="sale-no"> Sale No ....00102</h2>
+<div class="sale-date">Date: {{todayDate}}</div>
+
+<div class="order-list">
+  <div class="order-heading">
+    <div style="flex-grow: 1;">#</div>
+    <div style="flex-grow: 2;">products</div>
+    <div style="flex-grow: 1;">Quantity</div>
+    <div style="flex-grow: 2;">Sub Total</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="order-details-list">
+    <ng-container *ngFor="let item of sharedService.cartList; index as ind ">
+      <div class="pos-items">
+        <div class="item-no">{{ind+1}}</div>
+        <div class="item-name">{{item.name}}</div>
+        <div class="item-quantity">{{item.quantity}}</div>
+        <div class="item-subtotal">{{item.total.toFixed(3)}} INR</div>
+      </div>
+    </ng-container>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="pos-total">
+    <div class="pos-total-name">Total Items</div>
+    <div class="pos-total-count"> {{sharedService.noOfItems}} Total</div>
+    <div class="pos-total-data">{{sharedService.cartTotal.toFixed(3)}} INR</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="pos-total">
+    <div class="pos-total-name"></div>
+    <div class="pos-total-count"> Discount</div>
+    <div class="pos-total-data">{{sharedService.discountValue}}%</div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="pos-total">
+    <div class="pos-total-name"></div>
+    <div class="pos-total-count"> VAT</div>
+    <div class="pos-total-data">{{sharedService.taxValue}}%</div>
+  </div>
+</div>

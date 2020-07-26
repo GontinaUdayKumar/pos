@@ -56,6 +56,12 @@ img {
   height: 120px;
   width: 120px;
 }
+.image-box:hover {
+  cursor: pointer;
+}
+.no-image:hover {
+  cursor: pointer;
+}
 
 .hover-text {
   display: none;
@@ -63,10 +69,12 @@ img {
 
 div.layer:hover > .hover-text {
   display: block;
+  cursor: pointer;
 }
 
 div.no-image:hover > .hover-text {
   display: block;
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {

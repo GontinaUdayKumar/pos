@@ -26,21 +26,21 @@
       <div class="cart-display-name">Total</div>
     </div>
     <div class="cart-order-details-data">
-      <div class="cart-display-content cart-subtotal"><div class="cart-item-subtotal">{{sharedService.cartSubTotal.toFixed(3)}} EUR</div><div class="cart-display-items">{{sharedService.noOfItems}} items</div></div>
+      <div class="cart-display-content cart-subtotal"><div class="cart-item-subtotal">{{sharedService.cartSubTotal.toFixed(3)}} INR</div><div class="cart-display-items">{{sharedService.noOfItems}} items</div></div>
       <div class="cart-display-content cart-vat">
         <div  class="cart-item-tax-input">
-          <input type="number" [(ngModel)]="vatTax" (input)="onVatTaxChange($event.target.value)" min="0" max="100"> %
+          <input type="text" [(ngModel)]="vatTax" (input)="onVatTaxChange($event.target.value)" >
         </div>
-        <div class="cart-display-output">{{sharedService.vatTax.toFixed(3)}} EUR</div>
+        <div class="cart-display-output"><span *ngIf="sharedService.vatTax != 0">{{sharedService.vatTax.toFixed(3)}}</span> INR</div>
       </div>
       <div class="cart-display-content cart-discount">
         <div  class="cart-item-discount-input">
-          <input type="number" [(ngModel)]="discount" (input)="onDiscountTaxChange($event.target.value)" min="0" max="100"> %
+          <input type="text" [(ngModel)]="discount" (input)="onDiscountTaxChange($event.target.value)" >
         </div>
-        <div class="cart-display-output"> {{sharedService.discount.toFixed(3)}} EUR</div>
+        <div class="cart-display-output"> <span *ngIf="sharedService.discount != 0">{{sharedService.discount.toFixed(3)}}</span> INR</div>
       </div>
       <div class="cart-display-content cart-total">
-        {{sharedService.cartTotal.toFixed(3) }} EUR
+        {{sharedService.cartTotal.toFixed(3) }} INR
       </div>
     </div>
   </div>

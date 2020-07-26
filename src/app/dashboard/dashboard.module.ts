@@ -16,6 +16,6 @@ const routes: Routes = [
     SharedModule.forRoot(),
     RouterModule.forChild(routes)
   ],
-  providers: [DashboardService]
+  providers: [DashboardService],
 })
 export class DashboardModule { }

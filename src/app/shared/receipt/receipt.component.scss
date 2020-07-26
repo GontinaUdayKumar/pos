@@ -1,0 +1,74 @@
+.pos-total {
+  display: flex;
+  margin: 5px;
+  font-weight: 600;
+  padding: 5px;
+}
+.order-heading {
+  display: flex;
+  margin: 5px;
+  font-weight: 600;
+  padding: 4px;
+}
+
+.pos-items {
+  display: flex;
+  margin: 10px;
+}
+.sale-date {
+  font-weight: 600;
+  margin: 5px;
+  font-size: 14px;
+  margin-left: 30px;
+}
+.order-details-list {
+  margin-top: 5px;
+  font-weight: 600;
+  max-height: 65px;
+  overflow-y: scroll;
+}
+h2.sale-no {
+  text-align: center;
+  margin-top: 0px;
+  font-size: 20px;
+}
+
+
+.order-list {
+  margin-left: 30px;
+}
+
+.item-no {
+  width: 10%;
+}
+.item-name {
+  width: 50%;
+}
+.item-quantity {
+  width: 10%;
+}
+.item-subtotal {
+  width: 40%;
+  text-align: right;
+}
+.pos-total-name {
+  width: 30%;
+}
+.pos-total-count {
+  width: 30%;
+}
+.pos-total-data {
+  width: 40%;
+}
+
+.mat-divider {
+  color: lightgray;
+}
+.close-btn:hover {
+  cursor: pointer;
+}
+// new code
+app-receipt {
+  overflow: hidden;
+  font-family: sans-serif;
+}

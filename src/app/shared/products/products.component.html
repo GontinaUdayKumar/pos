@@ -4,14 +4,14 @@
         <img [src]="imageUrl + product.image" alt="No Image">
         <div class="layer">
           <span><b>{{product.name | uppercase}}</b></span>
-          <span class="hover-text"><b>{{product.price.toFixed(3)}} EUR</b></span>
+          <span class="hover-text"><b>{{product.price.toFixed(3)}} INR</b></span>
           <span class="hover-text"><small>{{product.description | uppercase}}</small></span>
         </div>
     </div>
     <ng-template #sampleImage>
       <div class="no-image" (click)="imageClicked(product)">
         <span><b>{{product.name | uppercase}}</b></span>
-        <span class="hover-text"><b>{{product.price.toFixed(3)}} EUR</b></span>
+        <span class="hover-text"><b>{{product.price.toFixed(3)}} INR</b></span>
         <span class="hover-text"><small>{{product.description | uppercase}}</small></span>
       </div>
     </ng-template>

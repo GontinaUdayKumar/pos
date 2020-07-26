@@ -46,14 +46,6 @@ export class DashboardComponent implements OnInit {
       });
     }
     this.sharedService.calculateCartOrder();
-    // this.sharedService.cartSubTotal = 0;
-    // this.sharedService.noOfItems = 0;
-    // this.sharedService.cartTotal = 0;
-    // this.sharedService.cartList.forEach(item => {
-    //   this.sharedService.cartSubTotal = this.sharedService.cartSubTotal + item.total;
-    //   this.sharedService.noOfItems = this.sharedService.noOfItems + item.quantity;
-    // });
-    // this.sharedService.cartTotal = this.sharedService.cartSubTotal + this.sharedService.vatTax - this.sharedService.discount;
   }
 
 }
