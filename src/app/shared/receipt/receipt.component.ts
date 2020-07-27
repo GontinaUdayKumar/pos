@@ -12,7 +12,7 @@ export class ReceiptComponent implements OnInit {
   moment = moment;
   todayDate = moment(new Date()).format('MM-DD-YYYY HH:mm:ss');
 
-  constructor(private sharedService: SharedService) { }
+  constructor(public sharedService: SharedService) { }
 
   ngOnInit() {
   }

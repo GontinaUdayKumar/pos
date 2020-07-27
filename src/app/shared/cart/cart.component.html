@@ -7,12 +7,12 @@
       <div style="flex-grow: 2;">TOTAL</div>
     </div>
 
-    <div class="order-cart-list" *ngIf="sharedService.cartList.length > 0; else customTemplate">
-      <ng-container *ngFor="let item of sharedService.cartList">
-        <app-cart-item [(cartItem)]="item" (deleteItemEvent)="deleteItemEvent($event)"></app-cart-item>
+    <div class="order-cart-list" *ngIf="sharedService.cartList.length > 0; else cartProducts">
+      <ng-container *ngFor="let item of sharedService.cartList; index as ind">
+        <app-cart-item [(cartItem)]="sharedService.cartList[ind]" (deleteItemEvent)="deleteItemEvent($event)"></app-cart-item>
       </ng-container>
     </div>
-    <ng-template #customTemplate>
+    <ng-template #cartProducts>
       <div class="order-cart-list">
         <div class="custom-message"> THERE ARE NO PRODUCTS</div>
       </div>
