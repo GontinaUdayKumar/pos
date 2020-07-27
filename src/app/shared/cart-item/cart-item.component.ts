@@ -30,8 +30,14 @@ export class CartItemComponent implements OnInit {
   }
 
   onQuantityChange(quantityValue) {
-    this.item['total'] = quantityValue * this.item['price'];
-    this.sharedService.calculateCartOrder();
+    if (quantityValue >= 0) {
+      this.item['total'] = quantityValue * this.item['price'];
+      this.sharedService.calculateCartOrder();
+    } else {
+      this.item['quantity'] = 0;
+      this.item['total'] = this.item['quantity'] * this.item['price'];
+      this.sharedService.calculateCartOrder();
+    }
   }
 
   decrement() {

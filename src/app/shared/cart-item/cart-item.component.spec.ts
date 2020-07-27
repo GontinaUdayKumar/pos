@@ -47,10 +47,16 @@ fdescribe("CartItemComponent", () => {
     expect(component).toBeTruthy();
   });
 
-  it("onQuantityChange called", () => {
+  it("onQuantityChange called: positive input", () => {
     component.item = productItem;
     component.onQuantityChange(3);
     expect(component.item.total).toEqual(390);
+  });
+
+  it("onQuantityChange called: negative input", () => {
+    component.item = productItem;
+    component.onQuantityChange(-3);
+    expect(component.item.total).toEqual(0);
   });
 
   it("decrement called", () => {

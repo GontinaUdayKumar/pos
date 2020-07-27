@@ -14,7 +14,7 @@ button { margin: 10px; height: 40px;}
 button.cancel-btn { background-color: #e94a4a; border-color: #e94a4a; font-weight: 700; color: white;}
 button.process-btn { background-color: #62cc62; border-color: #62cc62; font-weight: 700; color: white;}
 .order-cart-list { min-height: 365px; max-height: 365px; margin-bottom: 40px; overflow-x: hidden; overflow-y: auto;}
-.custom-message { padding: 33px; margin: 10px; text-align: center; font-size: 22px; background-color: white; color: grey;}
+.custom-message {     margin-left: 0px; padding: 33px; margin: 10px; text-align: center; font-size: 22px; background-color: white; color: grey;}
 .cart-item-subtotal { width: 65%;}
 .cart-item-tax-input { width: 40%;}
 .cart-item-discount-input { width: 40%;}
