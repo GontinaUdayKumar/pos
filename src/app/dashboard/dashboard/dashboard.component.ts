@@ -8,14 +8,12 @@ import { SharedService } from 'src/app/shared/service/shared.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-
   imageUrl: string = '';
   productsList = [];
   cartList = [];
 
   constructor(private dashboardService: DashboardService,
-              private sharedService: SharedService) {
+              public sharedService: SharedService) {
     this.imageUrl = './assets/images/';
   }
 
@@ -26,14 +24,11 @@ export class DashboardComponent implements OnInit {
   getProductsList() {
     this.dashboardService.getProductsList().subscribe(products => {
       this.productsList = products;
-      console.log(this.productsList);
-
     });
   }
 
   productClicked(product) {
-    console.log(product);
-    if (this.sharedService.cartList.indexOf(product) === -1) {
+    if (!this.sharedService.cartList.some(item  => item.name === product.name)) {
       product.quantity = 1;
       product.total = (product.quantity * product.price);
       this.sharedService.cartList.push(product);

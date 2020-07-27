@@ -1,11 +1,5 @@
 import {
-  Component,NgModule,Directive,Output, Input,EventEmitter, ViewContainerRef,Inject, ComponentFactoryResolver } from "@angular/core";
-// import { CommonModule } from '@angular/common';
-
-// @NgModule({
-//   imports: [CommonModule],
-// })
-// class DynamicHtmlModule {}
+  Component,Directive,Output, Input,EventEmitter, ViewContainerRef,Inject, ComponentFactoryResolver } from "@angular/core";
 
 @Directive({
   selector: 'dynamic-component-loader'
@@ -32,13 +26,8 @@ export class DynamicComponentLoader {
     this.setRootViewContainerRef(this.viewRef);
     const factory = this.factoryResolver.resolveComponentFactory(this.component);
     const component = factory.create(this.rootViewContainer.parentInjector);
-    if(this.data){
+    if(this.data) {
       component.instance.data = this.data;
-    }
-    if(component.instance.observeVariable){
-      component.instance.observeVariable.subscribe(result=>{
-        this.dataFromComponent.emit(result);
-      })
     }
     this.rootViewContainer.insert(component.hostView);
   }

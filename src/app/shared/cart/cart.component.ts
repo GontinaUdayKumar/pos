@@ -18,8 +18,6 @@ export class CartComponent implements OnInit {
 
   constructor(public sharedService: SharedService, private dialog: MatDialog) { }
 
-
-
   ngOnInit() {
   }
 
@@ -69,8 +67,7 @@ export class CartComponent implements OnInit {
 
   onVatTaxChange(taxValue) {
     if((taxValue.indexOf('%') === (taxValue.length - 1)) && taxValue.length > 1) {
-      console.log('yes');
-            this.sharedService.taxValue = taxValue.slice(0,-1);
+            this.sharedService.taxValue = +taxValue.slice(0,-1);
             this.sharedService.calculateCartOrder();
     } else if (isNaN(taxValue)) {
       setTimeout(() => {
@@ -87,7 +84,7 @@ export class CartComponent implements OnInit {
 
   onDiscountTaxChange(discountValue) {
     if ((discountValue.indexOf('%') === (discountValue.length - 1)) && discountValue.length > 1) {
-      this.sharedService.discountValue = discountValue.slice(0,-1);
+      this.sharedService.discountValue = +discountValue.slice(0,-1);
       this.sharedService.calculateCartOrder();
     } else if (isNaN(discountValue)) {
       setTimeout(() => {
@@ -100,6 +97,5 @@ export class CartComponent implements OnInit {
       this.sharedService.calculateCartOrder();
     }
   }
-
 
 }

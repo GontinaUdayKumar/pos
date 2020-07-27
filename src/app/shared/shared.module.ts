@@ -11,8 +11,6 @@ import { CustomDialogComponent } from './custom-dialog/custom-dialog.component';
 import { DynamicComponentLoader } from './dynamic-component-loader/dynamicComponentLoader';
 import { ReceiptComponent } from './receipt/receipt.component';
 
-
-
 @NgModule({
   declarations: [ProductsComponent, CartComponent, CartItemComponent, CustomDialogComponent, DynamicComponentLoader, ReceiptComponent],
   imports: [

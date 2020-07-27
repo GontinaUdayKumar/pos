@@ -24,7 +24,7 @@ export class CartItemComponent implements OnInit {
     this.itemChange.emit(this.item);
   }
 
-  constructor(private sharedService: SharedService) { }
+  constructor(public sharedService: SharedService) { }
 
   ngOnInit() {
   }
