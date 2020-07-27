@@ -28,6 +28,9 @@ export class CartComponent implements OnInit {
   }
 
   processSaleClick() {
+    this.sharedService.cartList = this.sharedService.cartList.filter(item => {
+      return item.quantity > 0;
+    });
     this.openRecieptPopup();
   }
 
